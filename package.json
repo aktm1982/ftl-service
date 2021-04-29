@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -d",
-    "prod": "webpack -p",
+    "build": "webpack",
+    "start": "webpack --watch",
     "test": "echo \"Error: n test specified\" && exit 1"
   },
   "keywords": [],
