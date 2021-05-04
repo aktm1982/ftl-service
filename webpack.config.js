@@ -1,33 +1,44 @@
+const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require("path");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
+    entry: {
+        app: './src/index.js'
+    },
     output: {
-        filename: 'main.js',
-        path: path.resolve(__dirname, 'dist')
+        filename: '[name].js',
+        path: path.resolve(__dirname, './dist')
     },
     module: {
-        rules: [
-            {
-                test: /\.css$/i,
+        rules: [{
+                test: /\.css$/,
                 use: [
-                    { 
-                        loader: MiniCssExtractPlugin.loader 
-                    }, 
-                    "css-loader"
-                ],
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ]
             },
-        ],
+            {
+                test: /\.ttf$/,
+                loader: 'file-loader',
+                options: {
+                    name: '../fonts/[name].[ext]'
+                }
+            }
+        ]
     },
     plugins: [
         new HtmlWebpackPlugin(
-            {template: "./src/index.html"}
+            {template: './src/index.html'}
         ),
         new MiniCssExtractPlugin(
-            {filename: "style.css"}
-        )
+            {filename: './assets/style/style.css'}
+        ),
+        new CopyWebpackPlugin({
+            patterns: [
+              { from: './src/assets/fonts', to: './assets/fonts' },
+            ],
+        }),
     ]
 }
