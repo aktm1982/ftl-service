@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTL</title>
+    <link rel="stylesheet" href="assets/style/fonts.css">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <script src="assets/script/script.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1 class="page-title">FTL: Прямая машина</h1>
+        </header>
+        <main class="container">
+            <form action="">
+                <div class="box box_wide route">
+                    <div class="box-head">
+                        <div class="box-head__marker">1</div>
+                        <h2 class="box-head__title">Маршрут</h2>
+                    </div>
+                    <div class="box-input">
+                        <label for="origin" class="label">Откуда</label>
+                        <input class="input" type="text" name="origin">
+                    </div>
+                    <div class="box-input">
+                        <label for="destination" class="label">Куда</label>
+                        <input class="input" type="text" name="destination">
+                    </div>
+                </div>
+                <div class="box box_narrow transport">
+                    <div class="box-head">
+                        <div class="box-head__marker">2</div>
+                        <h2 class="box-head__title">Транспорт</h2>
+                    </div>
+                    <div class="row">
+                        <div class="box-input">
+                            <label class="label">Грузоподъёмность</label>
+                            <div class="select select_narrow">
+                                <div class="select__placeholder">Не выбрана</div>
+                                <ul class="list list_hidden">
+                                    <li class="list__item list__item_active">Вариант 1</li>
+                                    <li class="list__item list__item_active">Вариант 2</li>
+                                    <li class="list__item list__item_active">Вариант 3</li>
+                                </ul>
+                                <div class="select__overlay"></div>
+                            </div>
+                        </div>
+                        <div class="box-input">
+                            <label class="label">Способ загрузки</label>
+                            <div class="select select_narrow">
+                                <div class="select__placeholder list__item_active">Задняя</div>
+                                <ul class="list list_hidden">
+                                    <li class="list__item list__item_active">Задняя</li>
+                                    <li class="list__item list__item_active">Боковая</li>
+                                </ul>
+                                <div class="select__overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box_narrow cargo">
+                    <div class="box-head">
+                        <div class="box-head__marker">3</div>
+                        <h2 class="box-head__title">Груз</h2>
+                    </div>
+                    <div class="box-input">
+                        <label class="label">Тип груза</label>
+                        <div class="select">
+                            <div class="select__placeholder">Не выбрана</div>
+                            <ul class="list list_hidden">
+                                <li class="list__item list__item_active">Вариант 1</li>
+                                <li class="list__item list__item_active">Вариант 2</li>
+                                <li class="list__item list__item_active">Вариант 3</li>
+                            </ul>
+                            <div class="select__overlay"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="box-input">
+                            <label class="label">Класс опасности</label>
+                            <div class="select select_narrow">
+                                <div class="select__placeholder list__item_active">Класс 5 — Окисляющие вещества и органические перекиси</div>
+                                <ul class="list list_hidden">
+                                    <li class="list__item list__item_active">Вариант 1</li>
+                                    <li class="list__item list__item_active">Вариант 2</li>
+                                    <li class="list__item list__item_active">Вариант 3</li>
+                                </ul>
+                                <div class="select__overlay"></div>
+                            </div>
+                        </div>
+                        <div class="box-input">
+                            <label class="label">Объявленная ценность, ₽</label>
+                            <div class="select select_narrow">
+                                <div class="select__placeholder">&ge;</div>
+                                <ul class="list list_hidden">
+                                    <li class="list__item list__item_active">1000</li>
+                                    <li class="list__item list__item_active">10000</li>
+                                    <li class="list__item list__item_active">100000</li>
+                                </ul>
+                                <div class="select__overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-input box-temp">
+                        <div class="checkbox temp-checkbox">
+                            <input class="checkbox__body" type="checkbox" name="temp">
+                        </div>
+                        <label for="temp" class="box-temp__label">Требуется температурный режим</label>
+                    </div>
+                    <div class="row temp-input temp-input_hidden">
+                        <div class="box-input">
+                            <label class="label">От, °C</label>
+                            <div class="select select_narrow">
+                                <div class="select__placeholder list__item_active">-25</div>
+                                <ul class="list list_hidden">
+                                    <li class="list__item list__item_active">-10</li>
+                                    <li class="list__item list__item_active">0</li>
+                                </ul>
+                                <div class="select__overlay"></div>
+                            </div>
+                        </div>
+                        <div class="box-input">
+                            <label class="label">До, °C</label>
+                            <div class="select select_narrow">
+                                <div class="select__placeholder list__item_active">+25</div>
+                                <ul class="list list_hidden">
+                                    <li class="list__item list__item_active">+35</li>
+                                    <li class="list__item list__item_active">+50</li>
+                                </ul>
+                                <div class="select__overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box_wide time">
+                    <div class="box-head">
+                        <div class="box-head__marker">4</div>
+                        <h2 class="box-head__title">Время</h2>
+                    </div>
+                    <div class="box-input">
+                        <div class="twin-label">
+                            <label class="label">Когда прибыть на точку</label>
+                            <label class="label label_right">700 км в день</label>
+                        </div>
+                        <div class="address-input-box">
+                            <div class="input address-input">
+                                <input class="address-input__radio" type="radio" name="long_addr">
+                                <label for="long_addr" class="address-input__label">Длинный адрес с градиентом</label>
+                                <div class="address-input__overlay"></div>
+                                <button class="address-input__button">Не выбрано</button>
+                            </div>
+                        </div>
+                        <div class="address-input-box">
+                            <div class="input address-input">
+                                <input class="address-input__radio" type="radio" name="long_addr">
+                                <label for="long_addr" class="address-input__label">Адрес не указан</label>
+                                <div class="address-input__overlay"></div>
+                                <button class="address-input__button address-input__button_inactive" disabled>Не выбрано</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-input">
+                        <label class="label">Комментарий к заказу</label>
+                        <textarea class="order-comment" name="" id="" rows="5" placeholder="Укажите особенности въезда на территорию склада или подъезда к адресу"></textarea>
+                    </div>
+                </div>
+            </form>
+            <div class="info">
+                <p>Для расчета стоимости необходимо ввести параметры груза, пункты отправки и прибытия.</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
