@@ -175,6 +175,9 @@ body {
 
     &__radio {
         appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+
     }
 
     &__radio::before {
@@ -271,6 +274,9 @@ body {
 
     &__body {
         appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+
     }
 
     &__body::before, &__body::after {
