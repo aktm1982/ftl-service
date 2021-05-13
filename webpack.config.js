@@ -1,44 +1,26 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: {
-        app: './src/index.js'
-    },
+    entry: './src/index.js',
     output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, './dist')
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
-        rules: [{
-                test: /\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader'
-                ]
-            },
+        rules: [
             {
-                test: /\.ttf$/,
-                loader: 'file-loader',
-                options: {
-                    name: '../fonts/[name].[ext]'
-                }
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"],
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin(
-            {template: './src/index.html'}
-        ),
-        new MiniCssExtractPlugin(
-            {filename: './assets/style/style.css'}
-        ),
-        new CopyWebpackPlugin({
-            patterns: [
-              { from: './src/assets/fonts', to: './assets/fonts' },
-            ],
-        }),
+            {
+                filename: 'index.html',
+                template: './src/index.html'
+            }
+        )
     ]
 }
